@@ -1,7 +1,6 @@
 .DS_Store
 .idea/
 *.out
-.editorconfig
 main*
 .gradle/
 trash/
