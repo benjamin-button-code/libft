@@ -22,8 +22,7 @@ OBJS = $(patsubst %.c, %.o, $(SRC))
 OBJS_B  = $(patsubst %.c, %.o, $(BONUS_SRC))
 CC	= gcc
 CFLAGS = -Wall -Wextra -Werror -c -I
-LIBC = ar rc
-LIBR = ranlib
+LIBC = ar rcs
 RM = rm -rf
 
 %.o : %.c 
@@ -32,10 +31,10 @@ RM = rm -rf
 all: $(NAME) 
 
 $(NAME): $(OBJS) $(HEADER)
-	ar rcs $(NAME) $?
+	$(LIBC) $(NAME) $?
 
 bonus: $(OBJS_B) $(HEADER)
-	ar rcs $(NAME) $?
+	$(LIBC) $(NAME) $?
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
