@@ -4,3 +4,5 @@
 main*
 .gradle/
 trash/
+libft-*
+libftTester
