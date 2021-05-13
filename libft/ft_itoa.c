@@ -18,18 +18,6 @@ static int	ft_count_size(int num)
 	return (size);
 }
 
-static int	ft_pow(int basis, int exponent)
-{
-	if (basis == 0)
-		return (1);
-	else if (exponent == 1)
-		return (basis);
-	else if (exponent % 2 == 0 )
-		return (ft_pow(basis * basis, exponent / 2));
-	else
-		return (ft_pow(basis * basis, exponent / 2) * basis);
-}
-
 static void	ft_convert_to_str(char **dst, int start, int size, int n)
 {
 	int	i;
@@ -39,7 +27,7 @@ static void	ft_convert_to_str(char **dst, int start, int size, int n)
 	i = start;
 	while (size)
 	{
-		degree = ft_pow(10, size - 1);
+		degree = ft_pow_recursive(10, size - 1);
 		curr_num = (n / degree + '0');
 		(*dst)[i] = (char)curr_num;
 		n %= degree;
