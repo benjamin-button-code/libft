@@ -2,20 +2,21 @@
 
 char	*ft_strdup(const char *s1)
 {
-	size_t	size;
-	size_t	i;
-	char	*dublicat_str;
+	char	*duplicate_str;
+	char	*start;
+	char	*temp;
+	char	*str1;
 
-	i = 0;
-	size = ft_strlen(s1);
-	dublicat_str = (char *)malloc((size + 1) * sizeof(char));
-	if (!dublicat_str)
+	str1 = (char *)s1;
+	temp = str1;
+	while (*temp)
+		temp++;
+	duplicate_str = (char *)malloc(sizeof(char) * (temp - str1 + 1));
+	if (!duplicate_str)
 		return (NULL);
-	while (s1[i])
-	{
-		dublicat_str[i] = s1[i];
-		i++;
-	}
-	dublicat_str[i] = '\0';
-	return (dublicat_str);
+	start = duplicate_str;
+	while (*str1)
+		*duplicate_str++ = *str1++;
+	*duplicate_str = '\0';
+	return (start);
 }
