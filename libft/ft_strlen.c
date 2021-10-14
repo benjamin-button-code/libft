@@ -2,8 +2,8 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t len;
-	uint32_t x;
+	size_t		len;
+	uint32_t	x;
 
 	len = 0;
 	while (1)
