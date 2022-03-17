@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_isnewline_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 15:11:27 by mwittenb          #+#    #+#             */
-/*   Updated: 2022/02/26 15:11:31 by mwittenb         ###   ########.fr       */
+/*   Created: 2022/03/11 15:24:32 by mwittenb          #+#    #+#             */
+/*   Updated: 2022/03/11 16:15:49 by mwittenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	is_newline(char *str)
 {
-	if (lst && new)
+	while (*str)
 	{
-		new->next = *lst;
-		*lst = new;
+		if (*str == '\n')
+			return (1);
+		str++;
 	}
+	return (0);
 }

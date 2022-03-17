@@ -1,5 +1,5 @@
 NAME = libft.a
-HEADER = libft.h
+HEADER = libft.h get_next_line.h
 SRC = 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 		ft_memmove.c ft_memchr.c ft_memcmp.c \
 		ft_strlen.c ft_strlcpy.c  ft_strlcat.c ft_strchr.c \
@@ -12,7 +12,8 @@ SRC = 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 		ft_itoa.c ft_strmapi.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-		ft_pow_recursive_bonus.c
+		ft_pow_recursive_bonus.c ft_realloc.c get_next_line.c ft_cstrlen_bonus.c \
+		ft_isnewline_bonus.c
 
 BONUS_SRC =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
@@ -21,16 +22,18 @@ BONUS_SRC =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 OBJS = $(patsubst %.c, %.o, $(SRC))
 OBJS_B  = $(patsubst %.c, %.o, $(BONUS_SRC))
 CC	= gcc
-CFLAGS = -Wall -Wextra -Werror -c -I
+# CFLAGS = -Wall -Wextra -Werror -c -I
+CFLAGS = -Wall -Wextra -Werror -c
 LIBC = ar rcs
 RM = rm -rf
 
-%.o : %.c 
-	$(CC) $(CFLAGS) $(HEADER) $< -o $@
 
-all: $(NAME) 
+%.o : %.c Makefile
+	$(CC) $(CFLAGS) $< -o $@
 
-$(NAME): $(OBJS) $(HEADER)
+all: $(NAME)
+
+$(NAME): $(OBJS) $(HEADER) Makefile
 	$(LIBC) $(NAME) $?
 
 bonus: $(OBJS_B) $(HEADER)

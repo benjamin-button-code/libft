@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/26 15:12:28 by mwittenb          #+#    #+#             */
+/*   Updated: 2022/03/11 16:18:28 by mwittenb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 
 # define LIBFT_H
 
+# include "get_next_line.h"
 # include <inttypes.h>
 # include <limits.h>
 # include <string.h>
@@ -22,6 +35,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
+void				*ft_realloc(void *old, int old_size, int size);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 size_t				ft_strlen(const char *s);
@@ -74,4 +88,8 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 // My functions
 int					ft_pow_recursive(int basis, int exponent);
+int					is_newline(char *str);
+size_t				ft_cstrlen(const char *str, char c);
+
+
 #endif

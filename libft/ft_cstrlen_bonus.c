@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_cstrlen_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwittenb <mwittenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 15:11:27 by mwittenb          #+#    #+#             */
-/*   Updated: 2022/02/26 15:11:31 by mwittenb         ###   ########.fr       */
+/*   Created: 2022/03/11 15:23:03 by mwittenb          #+#    #+#             */
+/*   Updated: 2022/03/11 16:15:56 by mwittenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+size_t	ft_cstrlen(const char *str, char c)
 {
-	if (lst && new)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	char	*copy_str;
+
+	copy_str = (char *)str;
+	while (*copy_str && *copy_str != c)
+		copy_str++;
+	return (copy_str - str);
 }
